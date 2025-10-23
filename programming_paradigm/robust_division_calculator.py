@@ -22,4 +22,4 @@ def safe_divide(numerator, denominator):
     except ValueError:
         return "Error: Both inputs must be numeric values"
     except ZeroDivisionError:
-        return "Error: Cannot divide by zero"
+        return "Error: Cannot divide by zero."
