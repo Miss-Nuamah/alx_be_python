@@ -33,13 +33,14 @@ class Library:
                 return f"Checked out: {book}"
         return "Book not available"
     
-    def return_book(self, title):
-        """Return a book to the library."""
+    def return_book(self):
+        """Return a book to the library by prompting for the title."""
+        title = input("Enter the title of the book to return: ")
         for book in self._books:
             if book.title == title and book._is_checked_out:
                 book._is_checked_out = False
                 return f"Returned: {book}"
-        return "Book not found or already returned"
+        return "Book not found in checked out list"
     
     def list_available_books(self):
         """List all available books in the library."""
