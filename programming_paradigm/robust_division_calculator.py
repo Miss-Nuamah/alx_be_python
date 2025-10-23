@@ -1,31 +1,25 @@
 def safe_divide(numerator, denominator):
     """
-    Safely performs division between two numbers.
+    Safely performs division between two numbers and returns appropriate messages.
     
     Args:
         numerator: The number to be divided
         denominator: The number to divide by
         
     Returns:
-        float: Result of the division
-        
-    Raises:
-        ValueError: If inputs are not numeric
-        ZeroDivisionError: If denominator is zero
+        str: Error message if operation fails
+        float: Result of division if successful
     """
     try:
-        # Convert inputs to float to handle both int and float inputs
+        # Try to convert inputs to float
         num = float(numerator)
         den = float(denominator)
         
-        # Check for division by zero
-        if den == 0:
-            raise ZeroDivisionError("Division by zero is not allowed")
-            
-        # Perform division
-        return num / den
-    
+        # Attempt division
+        result = num / den
+        return result
+        
     except ValueError:
-        raise ValueError("Both inputs must be numeric values")
-    except ZeroDivisionError as e:
-        raise e
+        return "Error: Both inputs must be numeric values"
+    except ZeroDivisionError:
+        return "Error: Division by zero is not allowed"
